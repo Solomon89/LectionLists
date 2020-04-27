@@ -11,7 +11,19 @@ list::list(double listValue, bool root)
 
 list::~list()
 {
-
+	if (root)
+	{
+		list* current ;
+		list* nextElement = this->ptrNextItem;
+		do
+		{
+			current = nextElement;
+			nextElement = current->ptrNextItem;
+			delete current;
+			
+		} while (nextElement != nullptr);
+		
+	}
 }
 
 list* list::addItem(double listValue)
